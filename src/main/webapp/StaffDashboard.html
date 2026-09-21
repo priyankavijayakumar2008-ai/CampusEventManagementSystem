@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #35127a, #7b22c9, #d23ee8);
+            color: white;
+            padding: 35px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+        }
+
+        .logout {
+            padding: 12px 25px;
+            background: white;
+            color: #6a1bb1;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome p {
+            margin-top: 8px;
+            color: #eeeeee;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            padding: 30px;
+            text-align: center;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.20);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #eeeeee;
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .action-btn {
+            display: block;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: white;
+            color: #6a1bb1;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📊 Staff Dashboard</h1>
+
+        <a href="index.html" class="logout">
+            HOME
+        </a>
+    </div>
+
+    <div class="welcome">
+        <h2>Welcome, Staff!</h2>
+        <p>Manage campus events and registrations from here.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">👨‍🎓</div>
+            <h2>Students</h2>
+            <p>Registered Students</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎪</div>
+            <h2>Events</h2>
+            <p>Campus Events</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📝</div>
+            <h2>Registrations</h2>
+            <p>Event Registrations</p>
+        </div>
+
+    </div>
+
+    <div class="actions">
+
+        <a href="ViewRegistrations.html" class="action-btn">
+            📋 VIEW REGISTRATIONS
+        </a>
+
+        <a href="event.html" class="action-btn">
+            🎪 VIEW EVENTS
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

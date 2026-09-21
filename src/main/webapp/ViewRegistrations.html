@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Registrations</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #35127a, #7b22c9, #d23ee8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            min-height: 500px;
+            padding: 50px;
+            text-align: center;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+        }
+
+        .icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            border: 3px solid rgba(255,255,255,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 42px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #eee;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: block;
+            width: 280px;
+            margin: 15px auto;
+            padding: 14px;
+            border-radius: 25px;
+            background: white;
+            color: #7020a8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #f0d5ff;
+        }
+
+        .home {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            color: white;
+        }
+
+        .home:hover {
+            background: white;
+            color: #7020a8;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">
+            &#9776;
+        </div>
+
+        <h1>Event Registrations</h1>
+
+        <p class="subtitle">
+            View all students registered for campus events
+        </p>
+
+        <a href="ViewRegistrationsServlet" class="btn">
+            VIEW REGISTRATIONS
+        </a>
+
+        <a href="index.html" class="btn home">
+            BACK TO HOME
+        </a>
+
+    </div>
+
+</body>
+</html>

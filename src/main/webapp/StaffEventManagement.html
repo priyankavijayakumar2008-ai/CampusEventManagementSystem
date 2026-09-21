@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Event Management</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #35127a, #7b22c9, #d23ee8);
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 95%;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.85;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .box h2 {
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .subtitle {
+            margin-bottom: 25px;
+            opacity: 0.85;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            color: #6a1bb1;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #f0d9ff;
+            transform: translateY(-2px);
+        }
+
+        /* Delete Button */
+
+        .delete-btn {
+            background: #ffb3b3;
+            color: #8b0000;
+        }
+
+        .delete-btn:hover {
+            background: #ff8f8f;
+        }
+
+        .dashboard-btn {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 13px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .dashboard-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <h1>⚙️ Staff Event Management</h1>
+
+            <p>
+                Add, update and delete campus events
+            </p>
+
+        </div>
+
+
+        <!-- ADD EVENT -->
+
+        <div class="box">
+
+            <h2>➕ Add Event</h2>
+
+            <p class="subtitle">
+                Create a new campus event
+            </p>
+
+            <form action="AddEventServlet" method="post">
+
+                <div class="form-group">
+
+                    <label>Event Name</label>
+
+                    <input type="text"
+                           name="eventName"
+                           placeholder="Enter Event Name"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Event Date</label>
+
+                    <input type="date"
+                           name="eventDate"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Event Time</label>
+
+                    <input type="time"
+                           name="eventTime"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Venue</label>
+
+                    <input type="text"
+                           name="venue"
+                           placeholder="Enter Venue"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Description</label>
+
+                    <textarea name="description"
+                              placeholder="Enter Event Description"></textarea>
+
+                </div>
+
+
+                <button type="submit" class="btn">
+                    ➕ ADD EVENT
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- UPDATE EVENT -->
+
+        <div class="box">
+
+            <h2>✏️ Update Event</h2>
+
+            <p class="subtitle">
+                Update an existing campus event
+            </p>
+
+            <form action="UpdateEventServlet" method="post">
+
+                <div class="form-group">
+
+                    <label>Event ID</label>
+
+                    <input type="number"
+                           name="eventId"
+                           placeholder="Enter Event ID"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Event Name</label>
+
+                    <input type="text"
+                           name="eventName"
+                           placeholder="Enter Event Name"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Event Date</label>
+
+                    <input type="date"
+                           name="eventDate"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Event Time</label>
+
+                    <input type="time"
+                           name="eventTime"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Venue</label>
+
+                    <input type="text"
+                           name="venue"
+                           placeholder="Enter Venue"
+                           required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Description</label>
+
+                    <textarea name="description"
+                              placeholder="Enter Event Description"></textarea>
+
+                </div>
+
+
+                <button type="submit" class="btn">
+                    ✏️ UPDATE EVENT
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- DELETE EVENT -->
+
+        <div class="box">
+
+            <h2>🗑️ Delete Event</h2>
+
+            <p class="subtitle">
+                Delete an event using its Event ID
+            </p>
+
+            <form action="DeleteEventServlet"
+                  method="post"
+                  onsubmit="return confirm('Are you sure you want to delete this event?');">
+
+                <div class="form-group">
+
+                    <label>Event ID</label>
+
+                    <input type="number"
+                           name="eventId"
+                           placeholder="Enter Event ID"
+                           required>
+
+                </div>
+
+
+                <button type="submit"
+                        class="btn delete-btn">
+
+                    🗑️ DELETE EVENT
+
+                </button>
+
+            </form>
+
+
+            <p class="note">
+                ⚠️ Events with existing registrations cannot be deleted.
+            </p>
+
+        </div>
+
+
+        <!-- BACK TO DASHBOARD -->
+
+        <a href="DashboardServlet"
+           class="dashboard-btn">
+
+            ← BACK TO DASHBOARD
+
+        </a>
+
+    </div>
+
+</body>
+
+</html>

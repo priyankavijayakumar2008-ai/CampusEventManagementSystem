@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Event Registration</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #35127a,
+                #7b22c9,
+                #d23ee8
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .container {
+            width: 450px;
+            max-width: 90%;
+
+            padding: 40px;
+
+            background: rgba(255,255,255,0.18);
+
+            border: 1px solid
+                    rgba(255,255,255,0.3);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.25);
+
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .register-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: #6a1bb1;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background: #f0d9ff;
+        }
+
+        .home-btn {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 11px 25px;
+
+            background:
+                rgba(255,255,255,0.2);
+
+            color: white;
+
+            text-decoration: none;
+
+            border: 1px solid
+                    rgba(255,255,255,0.4);
+
+            border-radius: 25px;
+
+            font-weight: bold;
+        }
+
+        .home-btn:hover {
+            background:
+                rgba(255,255,255,0.3);
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">
+            🎫
+        </div>
+
+        <h1>
+            Event Registration
+        </h1>
+
+        <p class="subtitle">
+            Register for this campus event
+            and be part of the experience!
+        </p>
+
+
+        <form
+            action="EventRegistrationServlet"
+            method="post">
+
+            <input
+                type="hidden"
+                name="eventId"
+                id="eventId">
+
+
+            <button
+                type="submit"
+                class="register-btn">
+
+                REGISTER FOR EVENT
+
+            </button>
+
+        </form>
+
+
+        <a
+            href="index.html"
+            class="home-btn">
+
+            BACK TO HOME
+
+        </a>
+
+    </div>
+
+
+    <script>
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const eventId =
+            params.get("eventId");
+
+        document.getElementById("eventId")
+                .value = eventId;
+
+    </script>
+
+</body>
+
+</html>

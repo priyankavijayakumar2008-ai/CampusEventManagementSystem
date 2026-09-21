@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Payment</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #35127a,
+                #7b22c9,
+                #d23ee8
+            );
+
+            color: white;
+        }
+
+        .payment-box {
+            width: 450px;
+            max-width: 95%;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.18);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.85;
+            margin-bottom: 25px;
+        }
+
+        .amount {
+            padding: 15px;
+            margin-bottom: 25px;
+
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .qr-box {
+            background: white;
+
+            width: 220px;
+            height: 220px;
+
+            margin: 0 auto 20px;
+
+            padding: 15px;
+
+            border-radius: 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-box img {
+            width: 190px;
+            height: 190px;
+        }
+
+        .scan-text {
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .paid-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: white;
+
+            color: #6a1bb1;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .paid-btn:hover {
+            background: #f0d9ff;
+        }
+
+        .home-btn {
+            display: block;
+
+            margin-top: 18px;
+
+            padding: 12px;
+
+            border-radius: 25px;
+
+            color: white;
+
+            text-decoration: none;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            background: rgba(255,255,255,0.15);
+
+            font-weight: bold;
+        }
+
+        .home-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .note {
+            margin-top: 18px;
+
+            font-size: 12px;
+
+            opacity: 0.7;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="payment-box">
+
+        <div class="icon">💳</div>
+
+        <h1>Event Payment</h1>
+
+        <p class="subtitle">
+            Complete your event registration payment
+        </p>
+
+
+        <div class="amount">
+            Amount: ₹200
+        </div>
+
+
+        <div class="qr-box">
+
+            <!-- Demo QR Code -->
+
+            <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=CampusEventDemoPayment"
+                alt="Payment QR Code">
+
+        </div>
+
+
+        <p class="scan-text">
+
+            📱 Scan the QR code using your
+            UPI payment app and complete the payment.
+
+        </p>
+
+
+        <form action="StudentPassServlet" method="get">
+
+            <input
+                type="hidden"
+                name="eventId"
+                id="eventId">
+
+            <button
+                type="submit"
+                class="paid-btn">
+
+                ✅ I HAVE PAID
+
+            </button>
+
+        </form>
+
+
+        <a
+            href="index.html"
+            class="home-btn">
+
+            BACK TO HOME
+
+        </a>
+
+
+        <p class="note">
+
+            Demo payment page for project presentation
+
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const eventId =
+            params.get("eventId");
+
+        document.getElementById("eventId").value =
+            eventId;
+
+    </script>
+
+</body>
+
+</html>
